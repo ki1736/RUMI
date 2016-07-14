@@ -1,0 +1,86 @@
+.navbar
+{
+  background-color: #fff;
+  border-style: none;
+
+}
+.jumbotron
+{
+  margin: 0px auto;
+  background-color: #fff;
+}
+.logo
+{
+  width:272px;
+  height:92px;
+}
+.logo_sub
+{
+  color: #4285f4;
+  font-size: 16px;
+  position: relative;
+  top: -20px;
+  left: 129px;
+  white-space: nowrap;
+}
+
+.logo_box
+{
+  padding-top: 112px;
+}
+
+.form-control
+{
+  height: 39px;
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid rgb(185,185,185);
+  border-radius: 1px;
+  border-top-color: rgb(160,160,160);
+  cursor: text;
+  display: inline-block;
+  font: 18px arial,sans-serif;
+  height: 36px;
+  line-height: 36px;
+  max-width: 672px;
+  position: relative;
+
+}
+input
+{
+  color: #bbb;
+
+}
+.mic
+{
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  position: relative;
+  left: -30px;
+}
+a
+{
+  float: left;
+}
+.thumbnail
+{
+  width: 154px;
+  height: 128px;
+}
+.dropimg
+{
+  width: 320px;
+  height: 456px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+  border: 1px solid #ccc;
+}
+.visited
+{
+  width: 688px;
+}
+.row1
+{
+  margin-top: 50px;
+  float: left;
+}
