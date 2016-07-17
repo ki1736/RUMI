@@ -2,7 +2,7 @@
 {
   background-color: #fff;
   border-style: none;
-
+  margin: 0px !important;
 }
 .jumbotron
 {
@@ -28,6 +28,13 @@
 {
   padding-top: 112px;
 }
+.form-horizonal
+
+{
+  margin: 0px auto;
+  max-width: 672px;
+  position: relative;
+}
 
 .form-control
 {
@@ -43,7 +50,6 @@
   height: 36px;
   line-height: 36px;
   max-width: 672px;
-  position: relative;
 
 }
 input
@@ -56,10 +62,11 @@ input
   cursor: pointer;
   height: 24px;
   width: 24px;
-  position: relative;
-  left: -30px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
-a
+li, a
 {
   float: left;
 }
@@ -75,12 +82,18 @@ a
   box-shadow: 0 2px 10px rgba(0,0,0,.2);
   border: 1px solid #ccc;
 }
-.visited
-{
-  width: 688px;
-}
-.row1
+.container8
 {
   margin-top: 50px;
-  float: left;
+}
+
+.visited
+{
+  height: 128px;
+}
+
+.row1
+{
+  margin: 0px auto;
+  max-width: 688px;
 }
