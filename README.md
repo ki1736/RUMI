@@ -1,5 +1,0 @@
-# RUMI
-# RUMI
-# RUMI
-# RUMI
-# RUMI
