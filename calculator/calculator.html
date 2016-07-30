@@ -24,46 +24,113 @@
     <script type="text/javascript">
         'use strict'
 
-        /* add number */
+     /*
+     1. 숫자
+      -스크린에 있는 text가 0이면 0을 지우고 다른 숫자가 입력
+      0이 아니면 다음에 입력되는 숫자가 함께 출력
+     2. 연산자(=을 제외한 연산자)
+      -스크린의 text가 0일 경우 이벤트가 일어나지 않는다.
+      -연산자는 한 개 이상 입력될 수 없다.
+      -스크린의 마지막 text가 숫자가 아닌 경우(연산자) 지금 클릭된 연산자로 바뀐다.
+      -숫자 2개(처음 입력된 숫자, 나중에 입력된 숫자)와 연산자 1개가 있는 경우 연산해서
+      스크린에 결과 값을 출력한다.
+     3. =
+      - 숫자 2개와 연산자 1개가 있을 경우에만 결과값을 계산해서 스크린에 출력한다.
+      그 외의 경우는 모두 이벤트가 일어나지 않는다.
+     */
 
-        function addChar(input, character) {
-            if (input.value == null || input.value == "0")
-                input.value = character
-            else
-                input.value += character
-        }
-        /* delete character one by one from right */
+     var preNum = 0; //첫번째 입력되는 숫자
+     var postNum = 0; //두번째 입력되는 숫자
+     var operator = ""; // 연산자 초기화
 
-        function deleteChar(input) {
-            input.value = input.value.substring(0, input.value.length - 1)
-        }
+     //number key
+     function num(n) //num(8)
+     {
+         var display = document.getElementById('display').value; // 변수에 display 값 담기  input 값 추출시 value사용 , div 값 추출 시 innerHTML
+         if (display == '0')
+         {
+             document.getElementById('display').value = "";
+         }
+         document.getElementById('display').value += n;
+     }
 
-        /* change sign + - */
-        function changeSign(input) {
-            if (input.value.substring(0, 1) == "-")
-                input.value = input.value.substring(1, input.value.length)
-            else
-                input.value = "-" + input.value
-        }
+     // operator key
+     function op(n)
+     {
+         var display = document.getElementById('display').value;
+         if(n !== '=') //=를 제외한 연산자가 입력된 경우
+         {
+             if(display !== '0') //스크린의 숫자가 0이 아닐 때
+             {
+                 var displaylast = display[display.length -1]; // 스크린의 마지막 값을 변수로 지정
+                 if (isNaN(displaylast) == false) { // 숫자가 아닌게 false = 숫자다.
+                     if(isNaN(display) == false ) //display에는 숫자만 있다.
+                     {
+                         preNum = display;
+                         operator = n; //입력된 연산자 기억
+                         document.getElementById('display').value += n;
+                     }
+                     else { // 연산자가 포함된 display
 
-        /* cumpute */
-        function compute(form) {
-            form.display.value = eval(form.display.value)
-        }
+                         var idx= display.indexOf(operator); //문자열 또는 배열에서 원하는 특정 문자의 위치값을 index로 반환하는 함수
+                         postNum= display.substring(idx + 1, display.length); //  substring(이숫자부터,이 숫자 전까지)
+                         var finalValue = calculation(); //연산을 위해 finalValue 변수에 함수를 지정
+                         document.getElementById('display').value = finalValue; //스크린에 연산결과 출력
+                         preNum =  finalValue; // 연산된 결과는 먼저 입력된 숫자 값으로 지정
+                         document.getElementById('display').value += n; // 새로 입력된 연산자를 PreNum뒤에 적용
+                     }
 
-        /* check number */
-        function checkNum(str) {
-            for (var i = 0; i < str.length; i++) {
-                var ch = str.substring(i, i + 1)
-                if (ch < "0" || ch > "9") {
-                    if (ch != "/" && ch != "*" && ch != "+" && ch != "-") {
-                        alert("invalid entry!")
-                        return false
-                    }
-                }
-            }
-            return true
-        }
+                 }
+                 else { // 스크린의 마지막 문자가 연산자일 경우,
+                     var changeOp= display.substr(display.length -1, 1);
+                     //마지막 문자를 changeOp변수로 지정해주고
+                     display = display.replace(changeOp,n); //replace 함수를 이용해서 마지막에 입력된 연산자 n으로 교환한다.
+                     operator=n; //마지막 입력된 연산자를 오퍼레이터에 입력
+                     document.getElementById('display').value = display;
+                 }
+
+             }
+
+         }else{ // =를 누른 경우
+
+              var idx= display.indexOf(operator); //문자열 또는 배열에서 원하는 특정 문자의 위치값을 index로 반환하는 함수
+              postNum= display.substring(idx + 1, display.length); //  substring(이숫자부터,이 숫자 전까지)
+              var finalValue = calculation(); //연산을 위해 finalValue 변수에 함수를 지정
+              document.getElementById('display').value = finalValue; //스크린에 연산결과 출력
+              preNum =  finalValue; // 연산된 결과는 먼저 입력된 숫자 값으로 지정
+         }
+     }
+
+     //계산식
+     function calculation()
+     {
+         var answer = 0; // 게산 값을 저장하기 위한 변수를 지정
+
+         switch (operator)
+         {
+             case "+":
+                 answer=parseInt(preNum)+parseInt(postNum); //parseInt 문자열을 정수로 바꿔주는 함수
+                 break;
+
+             case "-":
+                 answer=parseInt(preNum)-parseInt(postNum);
+                 break;
+             case "*":
+                 answer=parseInt(preNum)*parseInt(postNum);
+                 break;
+             case "/":
+                 answer=parseInt(preNum)/parseInt(postNum);
+                 break;
+
+         }
+         return answer; //마지막에 연산이 끝난 값을 리턴
+
+     }
+
+
+
+
+
 
     </script>
 
@@ -73,7 +140,7 @@
 <body>
     <!--Calculator-->
     <div class="container">
-        <form>
+        <form name="form">
             <div class="row">
                 <div class="col-xs-12" id="cal_body">
                     <!--Title & Controls-->
@@ -110,7 +177,7 @@
             <!--Screen-->
             <div class="row">
                 <div class="col-xs-12">
-                    <input class="screenInput" value="0" name="display" style="width:100%" readonly/>
+                    <input class="screenInput" id="display" style="width:100%" value="0" readonly/>
                 </div>
             </div>
 
@@ -140,51 +207,50 @@
             <!--Operators2-->
             <div class="row">
                 <div class="col-xs-12 operator2">
-                    <input class="col-xs-3 btn btn-default ce" name="ce" type="button" value="CE" onclick="this.form.display.value = 0 ">
-                    <input class="col-xs-3 btn btn-default c" name="c" type="button" value="C" onclick="this.form.display.value = 0 ">
-                    <input class="col-xs-3 btn btn-default x" name="x" type="button" value="⌫" onlick="deleteChar(this.form.display)">
-                    <input class="col-xs-3 btn btn-default division" name="division" type="button" value="÷" onclick="addChar(this.form.display, '/')">
+                    <input class="col-xs-3 btn btn-default ce" name="ce" type="button" value="CE">
+                    <input class="col-xs-3 btn btn-default c" name="c" type="button" value="C">
+                    <input class="col-xs-3 btn btn-default x" name="x" type="button" value="⌫" >
+                    <input class="col-xs-3 btn btn-default division" name="division" type="button" value="÷" onclick="op('/')">
                 </div>
             </div>
 
             <!-- 1-->
             <div class="row">
                 <div class="col-xs-12 num1">
-                    <input class="col-xs-3 btn btn-default" name="seven" type="button" value="7" onclick="addChar(this.form.display, '7')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default" name="eight" type="button" value="8" onclick="addChar(this.form.display, '8')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default" name="nine" type="button" value="9" onclick="addChar(this.form.display, '9')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default multi" name="multi" type="button" value="ⅹ" onclick="addChar(this.form.display, '*')">
+                    <input class="col-xs-3 btn btn-default" name="7" type="button" value="7" onclick="num(7)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default" name="8" type="button" value="8" onclick="num(8)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default" name="9" type="button" value="9" onclick="num(9)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default multi" name="multi" type="button" value="ⅹ" onclick="op('*')">
                 </div>
             </div>
 
             <!-- 2-->
             <div class="row">
                 <div class="col-xs-12 num2">
-                    <input class="col-xs-3 btn btn-default" name="four" type="button" value="4" onclick="addChar(this.form.display, '4')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default" name="five" type="button" value="5" onclick="addChar(this.form.display, '5')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default" name="six" type="button" value="6" onclick="addChar(this.form.display, '6')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default difference" name="difference" type="button" value="-" onclick="addChar(this.form.display, '-')">
+                    <input class="col-xs-3 btn btn-default" name="4" type="button" value="4" onclick="num(4)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default" name="5" type="button" value="5" onclick="num(5)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default" name="6" type="button" value="6" onclick="num(6)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default difference" name="difference" type="button" value="-" onclick="op('-')">
                 </div>
             </div>
 
             <!-- 3-->
             <div class="row">
                 <div class="col-xs-12 num3">
-                    <input class="col-xs-3 btn btn-default" name="one" type="button" value="1" onclick="addChar(this.form.display, '1')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default" name="two" type="button" value="2" onclick="addChar(this.form.display, '2')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default" name="three" type="button" value="3" onclick="addChar(this.form.display, '3')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default plus" name="plus" type="button" value="+" onclick="addChar(this.form.display, '+')">
+                    <input class="col-xs-3 btn btn-default" name="1" type="button" value="1" onclick="num(1)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default" name="2" type="button" value="2" onclick="num(2)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default" name="3" type="button" value="3" onclick="num(3)" style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default plus" name="plus" type="button" value="+" onclick="op('+')">
                 </div>
             </div>
 
             <!-- 4-->
             <div class="row">
                 <div class="col-xs-12 num4">
-                    <input class="col-xs-3 btn btn-default plusm" name="plusm" type="button" value="±" onclick="changeSign(this.form.display)">
-                    <input class="col-xs-3 btn btn-default" name="zero" type="button" value="0" onclick="addChar(this.form.display, '0')" style="font-weight:800">
-                    <input class="col-xs-3 btn btn-default dot" name="dot" type="button" value="." onclick="addChar(this.form.display, '.')">
-                    <input class="col-xs-3 btn btn-default equal" name="equal" type="button" value="=" onclick="if (checkNum(this.form.display.value))
-                { compute(this.form) }">
+                    <input class="col-xs-3 btn btn-default plusm" name="plusm" type="button" value="±">
+                    <input class="col-xs-3 btn btn-default" name="zero" type="button" value="0"  style="font-weight:800">
+                    <input class="col-xs-3 btn btn-default dot" name="dot" type="button" value="." >
+                    <input class="col-xs-3 btn btn-default equal" name="equal" type="button" value="=" onclick="op('=')">
                 </div>
             </div>
 
