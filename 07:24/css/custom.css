@@ -1,0 +1,229 @@
+*
+{
+  padding: 0px;
+  margin: 0px;
+  font-family: 'arial','돋움';
+}
+div, section{
+  display: block;
+}
+h3
+{
+  margin-top: 20px;
+}
+.no-padding
+{
+  padding: 0;
+}
+.no-margin
+{
+  margin: 0;
+}
+.hidden
+{
+  display: none;
+}
+
+.overlay
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 2;
+  top: 0;
+  opacity: 0.3;
+}
+ header
+ {
+   margin: 20px 0;
+   height: 30px;
+ }
+.logo
+ {
+   width: 10%;
+ }
+
+.logo img
+{
+  width: 100%;
+}
+.menu #gnb
+{
+  list-style: none;
+  line-height: 2.5em;
+}
+.menu #gnb li
+{
+  float: left;
+  padding: 0 10px;
+}
+.menu #gnb li a
+{
+  font-size: 14px;
+  text-decoration: none;
+}
+.carousel-caption
+{
+  bottom: 120px;
+}
+.carousel-caption .caption_title
+{
+  font-size: 50px;
+  font-weight: bold;
+}
+.carousel-caption .caption_desc
+{
+  font-size: 24px;
+}
+.image-menu img
+{
+ width: 100%;
+}
+.image-menu .image-menu-desc
+{
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  cursor: pointer;
+}
+.quick:hover .overlay
+{
+  display: block!important;
+}
+
+.image-menu .image-menu-desc .text
+{
+  color: #fff;
+  font-size:
+}
+.image-menu .image-menu-desc #title
+{
+  margin-top: 50px;
+}
+.image-menu .image-menu-desc #desc
+{
+  margin-top: 100px;
+}
+.sitemap ul
+{
+  list-style: none;
+}
+.sitemap > ul > li
+{
+  float: left;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-right: none;
+  width: 16.66%
+}
+.sitemap > ul > li:last-child
+{
+  border-right: 1px solid #ddd;
+}
+footer
+{
+  margin-top: 20px;
+}
+
+/* About Us */
+.page-header
+{
+  border-bottom: 0px;
+}
+.business
+{
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 30px;
+}
+.content_1 .about1
+{
+  height: 210px;
+}
+.circles .img-circle
+{
+  text-align: center;
+  display: inline-table;
+  margin: 10px 10px;
+  width: 235px;
+  height: 235px;
+}
+.circles .img-circle .big
+{
+  padding-top: 70px;
+  font-size: 1.2em;
+}
+.circles .img-circle .small
+{
+  padding-top: 15px;
+  font-size: 0.9em;
+}
+.container .circle1
+{
+  background-color: #e7e4df;
+}
+.container .circle2
+{
+  background-color: #e5eae4;
+}
+.container .circle3
+{
+  background-color: #e3e7e8;
+}
+.container .circle4
+{
+  background-color: #e8edee;
+
+}
+.container .circle5
+{
+  background-color: #e9e7ec;
+
+}
+.container .circle6
+{
+  background-color: #eeeaec;
+}
+.white
+{
+  color: #fff;
+  padding: 0px 15px;
+  font-size: 0.8em !important;
+
+}
+.orange
+{
+  color:#eacbaf !important;
+  padding: 0px 15px;
+
+}
+.white_big
+{
+  font-size: 1.6em !important;
+  padding: 10px 10px;
+}
+.office
+{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 5px 0;
+
+
+}
+.office_1
+{
+  background-image: url(../images/office_bg_01.jpg);
+}
+.office_2
+{
+  background-image: url(../images/office_bg_02.jpg);
+}
+.office_3
+{
+  background-image: url(../images/office_bg_03.jpg);
+}
+.office_4
+{
+  background-image: url(../images/office_bg_04.jpg);
+}
