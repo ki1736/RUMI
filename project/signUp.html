@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <script src="assets/js/jquery-1.12.4.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="assets/js/config.js"></script>
+    <script type="text/javascript" src="assets/js/signUp.js"></script>
+
+  </head>
+      <body id="signup">
+
+        <!--container start-->
+        <div class="container">
+          <!--loginForm start-->
+          <div class="signUpForm">
+            <!--panel start-->
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div id="signUp-input-form">
+
+                    <!--email start-->
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    <!--email end-->
+
+                    <!--name start-->
+                    <div class="form-group">
+                      <label for="exampleInputName">Name</label>
+                      <input type="name" class="form-control" id="exampleInputName" placeholder="Name">
+                    </div>
+                    <!--name end-->
+
+
+
+                    <!--password start-->
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <!--password end-->
+
+
+
+                    <!--button start-->
+                    <button id="doSignUp" class="btn btn-success btn-block" >Sign up</button>
+                    <!--button end-->
+
+                    <!--signin start-->
+                    <div class="link_signup pull-left">
+                      <a href="index.html">Signin</a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!--signin end-->
+
+                </div>
+              </div>
+
+              </div>
+              <!--panel end-->
+
+              <!--confirmedForm start-->
+              <div id="confirmedForm" class="custom_form">
+                <div class="alert alert-success signUp_info">
+                  <h3>SignUp success!</h3>
+                </div>
+              </div>
+              <!--confirmedForm end-->
+
+              <!--failedForm start-->
+               <div id="failedForm" class="custom_form">
+                 <div class="alert alert-danger signUp_info">
+                     <h3>SignUp failed!</h3>
+                 </div>
+                 <div class="link">
+                     <a href="signUp.html">Try again!</a>
+                 </div>
+              </div>
+              <!--failedForm end-->
+          </div>
+          <!--loginForm end-->
+        </div>
+        <!--container end-->
+  </body>
+
+<script type="text/javascript">
+  $(signup.init);// signUp js에 있는 init
+</script>
+
+</html>

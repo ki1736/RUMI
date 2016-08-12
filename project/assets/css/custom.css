@@ -1,0 +1,14 @@
+*
+{
+  margin: 0;
+  padding: 0;
+}
+#login .loginForm, #signup .signUpForm
+{
+  position:relative; margin:15% auto; width:500px;
+}
+
+#confirmedForm, #failedForm  /* 처음 페이지가 로딩되었을 때 결과가 보이지 않아야 함*/
+{
+  display:none;
+}

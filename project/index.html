@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <script src="assets/js/jquery-1.12.4.js" ></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/config.js"></script>
+    <script type="text/javascript" src="assets/js/login.js"></script>
+
+  </head>
+      <body id="login">
+
+        <!--container start-->
+        <div class="container">
+          <!--loginForm start-->
+          <div class="loginForm">
+            <!--panel start-->
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div id="login_input_form">
+                    <!--email start-->
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    <!--email end-->
+
+
+                    <!--password start-->
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <!--password end-->
+
+
+                    <!--checkbox start-->
+                    <div class="checkbox pull-left">
+                      <label>
+                        <input type="checkbox"> Check me out
+                      </label>
+                    </div>
+                    <!--checkbox end-->
+
+
+                    <!--signup start-->
+                    <div class="link_signup pull-right">
+                      <a href="signUp.html">Signup</a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!--signup end-->
+
+
+                    <!--button start-->
+                    <button id="doLogin" class="btn btn-primary btn-block">Submit</button>
+                    <!--button end-->
+                  </div>
+                </div>
+              </div>
+              <!--panel end-->
+
+              <!--confirmedForm start-->
+              <div id="confirmedForm" class="custom_form">
+                <div class="alert alert-success login_info" role="alert">
+                    <h3>Login 정보 입니다.</h3>
+                    <p class="name"></p>
+                    <p class="email"></p>
+                    <p class="password"></p>
+                </div>
+                <div class="link">
+                    <a href="main.html">다음페이지</a>
+                </div>
+              </div>
+              <!--confirmedForm end-->
+
+              <!--failedForm start-->
+              <div id="failedForm" class="custom_form">
+                <div class="alert alert-danger login_info" role="alert">
+                    <h3>Login 실패 하였습니다.</h3>
+                </div>
+                <div class="link">
+                    <a href="index.html">다시 시도하기</a>
+                </div>
+              </div>
+              <!--failedForm end-->
+          </div>
+          <!--loginForm end-->
+        </div>
+        <!--container end-->
+
+
+
+
+
+
+        <script type="text/javascript">
+        $(login.init);
+        </script>
+
+
+  </body>
+</html>

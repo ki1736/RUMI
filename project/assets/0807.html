@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+
+        <style>
+        div
+        {
+          border: 2px solid black;
+          padding: 5px;
+          margin: 5px;
+        }
+        </style>
+
+        <script type="text/javascript">
+
+        $(function(){
+
+          $('.body').css('border','1px solid blue');
+          $('.header').append($('.footer'));
+
+
+        });
+
+        var  config={
+          init:function(){
+              config.url="http=//128.199.188.157:7000/api/";
+          }
+        }
+        $(config.init);
+
+        </script>
+      </head>
+      <body>
+
+        <!--<div class="container">
+          <div class="header">  header    </div>
+          <div class="body">body
+            <div class="child"> child 1     </div>
+            <div class="child"> child 2    </div>
+            <div class="child"> child 3     </div>
+          </div>
+          <div class="footer">  footer   </div>
+
+
+        </div> -->
+
+        <form action="test.html" name="loginData" method="post"> <!--get post 프로토콜 보내는 것 정하기 get=url에 보임(게시판)// post=url에 안봐여 패킷으로만 데어터 전송(개인정보아ㅛㅇ)-->
+          <input type="tel" name="phone" />
+
+          <button type="submit">submit</button>
+        </form>
+
+
+
+
+
+
+  </body>
+</html>
