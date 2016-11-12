@@ -1,0 +1,375 @@
+html, body, .container {
+    height: 100%;
+    width: 100%;
+    outline: 0px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Raleway', sans-serif;
+}
+
+section {
+    display: block;
+}
+
+
+/*header*/
+
+.container>.header {
+    margin: 0;
+}
+
+.container>.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.brand {
+    position: absolute;
+    top: 0px;
+}
+
+.heart_top {
+    background-color: #292929;
+    text-align: center;
+    margin-top: 50px !important;
+    padding: 80px 0;
+}
+
+#main_heart {
+    width: 70%;
+    max-width: 300px;
+}
+
+.heart_top h1 {
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 1.4em;
+    color: #068b92;
+}
+
+
+/*animation container*/
+
+.animation_container {
+    padding-top: 3em;
+    padding-bottom: 4em;
+    text-align: center;
+    height: 456px;
+    overflow: hidden;
+}
+
+.animation_container img {
+    position: relative;
+}
+
+
+/*deal with animations*/
+
+.slide {
+    transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -webkit-transition: 1s ease-in-out;
+    position: absolute;
+    left: 0;
+}
+
+.heart {
+    z-index: 3;
+}
+
+.space {
+    z-index: 2;
+}
+
+.space.slide {
+    transform: translate(0px, -29.5em);
+    -moz-transform: translate(0px, -29.5em);
+    -webkit-transform: trranslate(0px, -29.5em);
+}
+
+.navbar {
+    width: 100%;
+    border: none;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    text-decoration: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar-brand {
+    line-height: 50px;
+    padding: 5px 5px;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #068b92;
+}
+
+.collapse, .navbar-collapse, .navbar-default {
+    border: none;
+    background-color: #292929;
+}
+
+#about, #work, #contact {
+    position: absolute;
+    left: 0;
+    top: -50px;
+    width: 100%;
+    height: 50px;
+}
+
+.title {
+    height: 700px;
+}
+
+.title_image {
+    width: 100%;
+}
+
+.title_about {
+    text-align: center;
+    background-color: #068b92;
+}
+
+.title_work {
+    text-align: center;
+    background-color: #fff;
+}
+
+.title_contact {
+    text-align: center;
+    background-color: #292929;
+}
+
+.mypic {
+    position: absolute;
+    top: 70px;
+    left: -48px;
+}
+
+.vertical-align {
+    line-height: 700px;
+}
+
+.content_back {
+    min-height: 700px;
+    background-color: #f5f5f5;
+}
+.content_back h2
+{
+    font-weight: bold;
+}
+
+.about .content {
+    padding: 60px;
+}
+
+.contact .content {
+    padding: 30px;
+}
+
+.work .content img {
+    width: 100%;
+}
+
+.contact .social img {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.contact .social a {
+    text-decoration: none;
+}
+
+.contact .social a:hover img {
+    transform: scale(1.2);
+    opacity: 0.6;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f5f5f5;
+    border-radius: 0;
+    transition: .2s;
+}
+
+.btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.work_img {
+    border: none;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.work_img img {
+    width: 100%;
+}
+
+.row>.column {
+    padding: 0 8px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column2 {
+    float: left;
+    width: 25%;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: black;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cursor {
+    cursor: pointer
+}
+
+img.hover-shadow {
+    transition: 0.3s
+}
+
+.hover-shadow:hover {
+    opacity: 0.7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.circle {
+    max-width: 960px;
+    padding-top: 25px;
+}
+
+.circle p {
+    width: 100%;
+    text-align: center;
+}
+
+.circle>div {
+    padding: 0;
+    margin: 0;
+}
+
+.circle>div>.canvas {
+    float: left;
+    padding: 0;
+    width: 100%;
+}
+
+@media screen and (min-width: 991px){
+    .circle p {
+        padding-top: 20px;
+        display: table;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 990px) and (min-width: 767px) {
+    .canvas>div {
+        margin: 0 auto;
+    }
+    .canvas div, .canvas div span {
+        width: 130px !important;
+        height: 130px !important;
+    }
+    .canvas div span {
+        line-height: 130px !important;
+    }
+    .canvas .cir {
+        width: 126px !important;
+        height: 126px !important;
+    }
+    .circle p {
+        padding-top: 20px;
+        display: table;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .canvas>div {
+        margin: 0 auto;
+    }
+    .canvas div, .canvas div span {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .canvas div span {
+        line-height: 200px !important;
+    }
+    .canvas .cir {
+        width: 196px !important;
+        height: 196px !important;
+    }
+    .circle>div{
+        padding-bottom: 40px;
+    }
+    .circle p {
+        display: table;
+        padding-top: 20px;
+    }
+}
+
+
+/*media query*/
+
+@media screen and (min-width: 900px) {
+    .work_img img {
+        height: 245px;
+    }
+}
+
+iframe {
+    width: 100%;
+}
+
+div p a {
+    text-decoration: none;
+    color: #333;
+}
+
+div p a:hover {
+    text-decoration: none;
+    color: #068b92;
+}
+
+div p a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+
+/*footer*/
+
+footer {
+    width: 100%;
+}
