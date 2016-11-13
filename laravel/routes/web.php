@@ -27,3 +27,8 @@ Route::get('/projects', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::get('/todo', function () {
+    return view('todo');
+});
+

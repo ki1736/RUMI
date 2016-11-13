@@ -18,6 +18,32 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Project::class, function (Faker\Generator $faker) {
+	$min = App\User::min('id');
+	$max = App\User::max('id');
+
+    return [
+        'user_id' => $faker->numberBetween($min,$max), //User xpdlqmfdml ID값 기준으로 생성함
+        'name' => $faker->word, //문자열 데이터 임으로 생성 
+        'created_at' => $faker->dateTimeBetween($startDate = '-2years', $endDate = '-1years'),
+        'updated_at' => $faker->dateTimeBetween($startDate = '-2years', $endDate = '-1years'),
+
+    ];
+});
+
+
+$factory->define(App\Task::class, function (Faker\Generator $faker) {
+    $min = App\Project::min('id');
+    $max = App\Project::max('id');
+
+    return [
+        'project_id' => $faker->numberBetween($min,$max),
+        'name' => $faker->word,
+        'description' => $faker->text,
+        'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = '-1 years'),
+        'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = '-1 years'),
     ];
 });

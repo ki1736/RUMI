@@ -276,10 +276,11 @@ section .work_img .work_contents
 	max-width: 1024px;
 	min-width: 340px;
 	margin: 0 auto;
-	padding: 120px 20px 370px 10px;
-
-
-	
+	padding: 120px 20px 370px 10px;	
+}
+.work_img .work_contents .work_contents_in
+{
+	padding-top: 120px;
 }
 section .work_img .work_contents .get
 {
@@ -1110,6 +1111,10 @@ div .thumbnail .caption a
 	{
 		padding-right: 0px;
 	}
+	.work_img .work_contents .work_contents_in
+	{
+		display: none;
+	}
 
 
 
@@ -1171,5 +1176,13 @@ div .thumbnail .caption a
 	{
 		padding-right: 0px;
 	}
+	.work_img .work_contents .work_contents_in
+	{
+		height: 530px
+	}
+
+
+
+
 
 }
