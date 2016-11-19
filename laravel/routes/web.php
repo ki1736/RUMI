@@ -12,23 +12,12 @@
 */
 
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'MainController@index');
 
-Route::get('/service', function () {
-    return view('service');
-});
+Route::get('/service', 'ServiceController@index');
 
-Route::get('/projects', function () {
-    return view('projects');
-});
+Route::get('/project', 'ProjectController@index');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'ContactController@index');
 
-Route::get('/todo', function () {
-    return view('todo');
-});
 

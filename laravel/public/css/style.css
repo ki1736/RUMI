@@ -139,6 +139,7 @@ section div .dream_house
 section .dream_house h2
 {
 	padding: 20px 0;
+	font-size: 45px;
 }
 section .dream_house p
 {
@@ -208,7 +209,7 @@ div .thumbnail .caption a
 
 	.contents_back
 {
-	height: 320px;
+	height: 520px;
 }
 .us
 {
@@ -368,6 +369,8 @@ section .featured_works .thumbnail1
 	background-image:url("../images/works1.jpg");
 	height: 240px;
 	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 section .featured_works .thumbnail2
@@ -375,12 +378,22 @@ section .featured_works .thumbnail2
 	background-image:url("../images/works2.jpg");
 	height: 240px;
 	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+
+
 }
 section .featured_works .thumbnail3
 {
 	background-image:url("../images/works3.jpg");
 	height: 240px;
 	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+
+
 }
 
 section .featured_works .thumbnail .img
@@ -588,10 +601,24 @@ div .thumbnail .caption a
 	padding: 0;
 	border-right: 1px solid #d7d7d7;
 }
-.our_test .col-md-4:last-child
+.our_test .col-md-4:nth-child(3)
 {
 	border-right: none;
 }
+.our_test .col-md-4:nth-child(4)
+{
+	border-top: 1px solid #d7d7d7;
+}
+.our_test .col-md-4:nth-child(5)
+{
+	border-top: 1px solid #d7d7d7;
+}
+.our_test .col-md-4:nth-child(6)
+{
+	border-right: none;
+	border-top: 1px solid #d7d7d7;
+}
+
 .our_test .test .row  p
 {
 	margin: 0 auto;
@@ -924,6 +951,10 @@ div .thumbnail .caption a
 	background-image:url("../images/works2.jpg");
 	height: 240px;
 	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+
 }
 
 .projects .thumbnail .img
@@ -1049,7 +1080,7 @@ div .thumbnail .caption a
  	color: #777;
 
  }
-  .contact_form span
+  .contact_form .llc
   {
 	color: #fab702;
 
@@ -1060,11 +1091,13 @@ div .thumbnail .caption a
 	.dream_contents
 	{
 		position: relative;
+
 	}
+
 	section .contents
 	{
 		position: absolute;
-		top: 360px;
+		bottom: 0px;
 	}
 		.work_img
 	{
@@ -1076,11 +1109,23 @@ div .thumbnail .caption a
 		top: 0px;
 
 	}
-
+	section .us_contents
+	{
+		padding-top: 50px;
+	}
+	section .dream_contents .contents
+	{
+		padding-bottom: 30px;
+	}
 
 
 }
 @media only screen and (max-width: 768px) {
+
+	section .main_image
+	{
+		background-color: rgba(123, 113, 113, 0);
+	}
 
 	.contents_back
 
@@ -1126,9 +1171,10 @@ div .thumbnail .caption a
 @media only screen and (max-width: 530px) 
 {
 
-	.main_image
+	section .main_image
 	{
 		background-size: 530px;
+		background-color: rgba(123, 113, 113, 0);
 	}
 	section div .dream_house
 	{
@@ -1180,6 +1226,7 @@ div .thumbnail .caption a
 	{
 		height: 530px
 	}
+
 
 
 
