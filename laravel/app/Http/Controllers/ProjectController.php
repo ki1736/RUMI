@@ -12,13 +12,14 @@ class ProjectController extends Controller
     public function index()
     {
 
-        $response['navigations'] = Navigation::all();
+        $response['navigations'] = Navigation::where('status', '=', 'published')->get();
 
-        $response['contents_info'] = Content::leftjoin('images', 'contents.id', '=', 'images.content_id')
-            ->where('contents.type','=','info')->take(4)->get();
+        $response['contents_info'] =Content::where('type', '=', 'info')->get();
 
-        $response['contents_social'] = Content::leftjoin('images', 'contents.id', '=', 'images.content_id')
-            ->where('contents.type','=','social')->take(5)->get();
+        $response['contents_social'] =Content::where('type', '=', 'social')->get();
+
+        $response['navigations_title'] =Navigation::where('id', '=', '5')->get();
+
 
         return view('view.project',$response);
     }

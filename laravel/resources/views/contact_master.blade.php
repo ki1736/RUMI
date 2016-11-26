@@ -9,74 +9,79 @@
     @yield('link')
     <script type="text/javascript" src="{{ URL::asset('js/jquery-2.2.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-    @yield('scripts')
 </head>
 <body>
 <div class="header">
+
+
     <!--   tab top start-->
-    <div class="container_tab">
-        <div class="raw tab_top">
-            <div class="social pull-left">
-                <div class="tab_top_left">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-envelope"></i></a>
+        <div class="contact_tab ">
+            <div class="service_container_tab row">
+                <div class="service_logo col-md-3 col-sm-3">
+                    <a href="/">
+                        <img src="{{ URL::asset('images/logo_white.png')}}" alt="main logo"/>
+                    </a>
+                </div>
+                <div class="service_nav_group col-md-9 col-sm-9">
+                    <div class="row tab_top">
+                        <div class="social pull-right">
+                            <div class="email_call call">
+                                <p>Toll Free <a href="#">1.800.123.4567</a></p>
+                            </div>
+
+                            <div class="tab_top_left">
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- nav bar start -->
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse service_nav contact_nav" id="bs-example-navbar-collapse-2">
+                                <ul class="nav navbar-nav">
+                                    @foreach($navigations as $nav)
+                                        <li><a href="{{url($nav->slug)}}">{{$nav->name}}</a></li>
+                                    @endforeach
+
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                    <!-- nav bar end -->
 
                 </div>
-                <div class="tab_top_left">
-                    <p class="add-text">Add your text or menu here.</p>
+                <!--   tab top end -->
+                <div class="contact_main_title">
+                    <h1>GET IN TOUCH WITH US</h1>
+                    <h5>Contact The Contsruction Company</h5>
                 </div>
             </div>
-            <div class="tab_top_right pull-right">
-                <div class="email_call email">
-                    <p>Email Us <a href="#">info@business.com</a></p>
-                </div>
-                <div class="email_call call">
-                    <p>Toll Free <a href="#">1.800.123.4567</a></p>
-                </div>
+
+
+        </div>
+        <div class="sub_title">
+            <div class="row">
+                <h6><a href="#">Construction Theme</a><i class="fa fa-angle-right"></i><span>Contact Us</span></h6>
             </div>
         </div>
-    </div>
-    <!--   tab top end -->
 
-    <!-- logo start-->
-    <div class="tab_logo">
-        <div class="raw logo text-center">
-            <a href="/">
-                <img src="{{ URL::asset('images/company_logo.png')}}" alt="main logo"/>
-            </a>
-        </div>
-    </div>
-    <!-- logo end-->
-    <!-- nav bar start -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    @foreach($navigations as $nav)
-                        <li><a href="{{url($nav->slug)}}">{{$nav->name}}</a></li>
-                    @endforeach
-
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <!-- nav bar end --></div>
 <div class="container">
     @yield('content')
 </div>
@@ -147,5 +152,4 @@
     </footer>
 </div>
 </body>
-@yield('script')
 </html>

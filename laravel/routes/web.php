@@ -14,6 +14,10 @@
 
 Route::get('/', 'MainController@index');
 
+Route::get('/navigation', 'NavigationController@index');
+
+Route::post('/navigation', 'NavigationController@store');
+
 Route::get('/service', 'ServiceController@index');
 
 Route::get('/project', 'ProjectController@index');

@@ -228,4 +228,8 @@ return [
 
     ],
 
+    'image' => [
+        'main'=> 'uploads\thumb'
+    ],
+
 ];

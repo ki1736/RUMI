@@ -1,7 +1,7 @@
 <?php
  ?>
 
- @extends('master')
+ @extends('contact_master')
   @section('title')
      CONSTRUCTION
  @endsection
@@ -10,77 +10,6 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"> 
   <script src="https://maps.googleapis.com/maps/api/js"></script>
   <script type="text/javascript" src="{{ URL::asset('js/google_map.js') }}"> </script>
- @endsection
- @section('header')
- <!--   tab top start--> 
- <div class="contact_tab "> 
- <div class="service_container_tab row">
- 	<div class="service_logo col-md-3 col-sm-3">
- 		<a href="/">
-			<img src="{{ URL::asset('images/logo_white.png')}}" alt="main logo"/>
-		</a>
- 	</div>
- 	<div class="service_nav_group col-md-9 col-sm-9">
-	 <div class="row tab_top">
-		 	<div class="social pull-right">
-		 		<div class="email_call call">
-					<p>Toll Free <a href="#">1.800.123.4567</a></p>
-				</div>
-
-		 		<div class="tab_top_left">
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-					<a href="#"><i class="fa fa-pinterest"></i></a>
-					<a href="#"><i class="fa fa-google-plus"></i></a>
-					<a href="#"><i class="fa fa-envelope"></i></a>
-				</div>
-
-			</div>
-
-	 </div>
-	 <!-- nav bar start -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse service_nav contact_nav" id="bs-example-navbar-collapse-2">
-      <ul class="nav navbar-nav">
-		  @foreach($navigations as $nav)
-			  <li><a href="{{$nav->slug}}">{{$nav->name}}</a></li>
-		  @endforeach
-
-	  </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<!-- nav bar end --> 
-
-</div>
-<!--   tab top end --> 
-<div class="contact_main_title">
-	<h1>GET IN TOUCH WITH US</h1>
-	<h5>Contact The Contsruction Company</h5>
-</div>
-</div>
-
-
-</div>
-<div class="sub_title">
-	<div class="row">
-			<h6><a href="#">Construction Theme</a><i class="fa fa-angle-right"></i><span>Contact Us</span></h6>
-	</div>
-</div>
-
-
  @endsection
  @section('content')
 
@@ -131,15 +60,22 @@
 		<div class="col-md-6 con_map">
 			<div class="col-md-6 col-sm-6">
 				<h4>MAILING ADDRESS</h4>
-				@foreach($contents_info1 as $c)
-				<p>{{$c->description}}</p>
-					@endforeach
+				@foreach($contents_info as $c)
+					@if($c->title === 'address')
+						<p>
+							{{$c->description}}
+						</p>
+					@endif
+				@endforeach
 			</div>
 			<div class="col-md-6 col-sm-6">
 				<h4>CONTACT INFO</h4>
-
-				<p>@foreach($contents_info2 as $c)<span>{{$c->description}}</span>
-					<br>@endforeach
+				<p>
+					@foreach($contents_info as $c)
+						@if($c->title === 'phone' || $c->title ==='email')
+						<span>{{$c->description}}</span> <br/>
+						@endif
+					@endforeach
 				<span class="llc">@construction_llc</span><br>
 				</p>
 

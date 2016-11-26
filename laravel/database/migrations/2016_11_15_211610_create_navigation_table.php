@@ -16,7 +16,10 @@ class CreateNavigationTable extends Migration
         Schema::create('navigations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 20);
-            $table->string('slug', 15);
+            $table->string('slug', 12);
+            $table->integer('order', 1);
+            $table->enum('status', 'published','unpublished');
+
             $table->timestamps();
 
         });
